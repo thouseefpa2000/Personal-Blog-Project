@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<header class="heading">
+    <h1>Practice</h1>
+</header>
+<div class="practice-card">
+
+    {% for p in ps %}
+    <div class="box">
+        <h3>question:{{ p.id }}</h3>
+        <p>{{ p.question }}</p>
+        <div class="btn-practice">
+            <a href="{% url 'answer' p.id %}">
+                <button type="button">Answer</button>
+            </a>
+            {% if user.is_superuser %}
+            <a href="{% url 'deletepratice' p.id %}">
+                <button type="button">Delete</button>
+            </a>
+            <a href="{% url 'updatepratice' p.id %}">
+                <button type="button">Update</button>
+            </a>
+            {% endif %}
+        </div>
+    </div>
+
+
+</div>
+{% endfor %}
+</div>
+{% endblock %}

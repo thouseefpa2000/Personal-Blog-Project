@@ -1,0 +1,51 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="myblog">
+        <header class="heading">
+            <h1>MY BLOG</h1>
+        </header>
+
+        <div class="imgblog">
+            <img src="{% static 'img/girl-1871104_1280 (1).jpg' %}" alt="Blog Cover" />
+            <div class="search">
+                <form method="GET" action="{% url 'myblog' %}">
+                
+                <input type="search" name="q" placeholder="Search" value="{{ request.GET.q }}" />
+
+                <button type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+
+        <section class="card">
+            {% for blogs in blog %}
+            <article class="imgcard">
+                <img src="{% static 'img/reinebringen-9710168_1280.jpg' %}" alt="Leh Ladakh Trip" />
+                
+                <p>{{ blogs.title }}</p>
+               
+                
+                <div class="btnblog">
+                    <button type="submit"><a href="{% url 'readblog' blogs.id %}">Read more</a> </button>
+                    {% if user.is_superuser %}
+                    <button type='submit'><a href="{% url 'deleteblog' blogs.id %}">Delete</a></button>
+                    <button type='submit'><a href="{% url 'updateblog' blogs.id %}">Update</a></button>
+                    {% endif %}
+                </div>
+
+            </article>
+            {% endfor %}
+        </section>
+ 
+        <div class="btnblog">
+            <a href="#"><button type="button">View More</button></a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Thouseef PA. All rights reserved.</p>
+    </footer>
+
+{% endblock %}

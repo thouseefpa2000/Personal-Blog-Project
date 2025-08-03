@@ -1,0 +1,52 @@
+{% load static %}
+<header>
+    <nav>
+        <div class="logo">
+            <a href="{% url 'index' %}">
+            Thouseef pa
+            </a>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="{% url 'myblog' %}">My blog</a></li>
+                <li><a href="">My project</a></li>
+                <li><a href="{% url 'pratice' %}">Pratice</a></li>
+                <li><a href="">My stroy</a></li>
+                <li><a href="socialmdeia.html">Follow me</a></li>
+            </ul>
+
+        </div>
+        <div class="auth">
+            <div class="btn">
+                {% if user.is_authenticated %}
+                <a href="{% url 'logout' %}">
+                    <button type="submit">Logout</button>
+                </a>
+                {% else %}
+                <a href="{% url 'login' %}">
+                    <button type="submit">Login</button>
+
+                </a>
+
+                <a href="{% url 'register' %}">
+                    <button type="submit">Register</button>
+                </a>
+                {% endif %}
+
+            </div>
+            <div class="profile">
+
+                <a href="{% url 'dashboard' %}">
+                    {% if user.is_authenticated %}
+                    <img src="{% static 'img/girl-1871104_1280 (1).jpg' %}"" alt="pro">
+                    {{ user.username }}
+                    {% endif %}
+
+                </a>
+
+            </div>
+
+        </div>
+    </nav>
+
+</header>

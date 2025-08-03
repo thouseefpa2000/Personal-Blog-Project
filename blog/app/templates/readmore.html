@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="myblog">
+    <header class="heading">
+        
+        <h1>{{ blog.title }}</h1>
+        
+
+    </header>
+
+    <div class="imgblog">
+        <img src="{% static 'img/girl-1871104_1280 (1).jpg' %}" alt="Blog Cover" />
+    </div>
+    <div class="para">
+
+        <p>
+        
+        <p>{{ blog.decription }}</p>
+        
+
+        </p>
+
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <main>
+        <div class="main-heading">
+            <h1>
+                THOUSEEF PA
+            </h1>
+            <P>
+                Web Developer Python Enthusiast
+            </P>
+        </div>
+        <div class="img">
+            <img src="{% static 'img/motorbike-7914313_1280.png' %}" alt="">
+        </div>
+    </main>
+    <aside>
+        <div class="aside-img">
+            <a href="">
+                <img src="{% static 'img/1298738_facebook_brand_fb_logo_social media_icon.png' %}" alt="facebook">
+            </a>
+            <a href="">
+                <img src="{% static 'img/1298747_instagram_brand_logo_social media_icon.png' %}" alt="facebook">
+            </a>
+            <a href="">
+                <img src="{% static 'img/5296501_linkedin_network_linkedin logo_icon.png' %}" alt="facebook">
+            </a>
+        </div>
+    </aside>
+    <footer>
+        <p>&copy; 2025 Thouseef PA. All rights reserved.</p>
+    </footer>
+{% endblock %}
